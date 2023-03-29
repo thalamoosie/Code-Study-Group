@@ -1,2 +1,2 @@
-# JS-Skill-Club
+# Study Group
 Code study group solution repo for weekly exercises
