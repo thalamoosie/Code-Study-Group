@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /*
 
@@ -30,68 +30,46 @@ We could possibly do the following:
 
 // Example Matrix 1
 const mat = [
-    [1,1,0,0,0],
-    [1,1,1,1,0],
-    [1,0,0,0,0],
-    [1,1,0,0,0],
-    [1,1,1,1,1],
-]
+  [1, 1, 0, 0, 0],
+  [1, 1, 1, 1, 0],
+  [1, 0, 0, 0, 0],
+  [1, 1, 0, 0, 0],
+  [1, 1, 1, 1, 1],
+];
 
 // Example Matrix 2
 const mat2 = [
-    [1,0,0,0],
-    [1,1,1,1],
-    [1,0,0,0],
-    [1,0,0,0]
+  [1, 0, 0, 0],
+  [1, 1, 1, 1],
+  [1, 0, 0, 0],
+  [1, 0, 0, 0],
+];
 
-]
+const kWeakestRows = function (mat, k) {
+  let sum = 0;
+  let sorter = [],
+    solution = [];
+  let i = 0;
 
-// [0][1][2]
-// 
-const weirdMat = [
-    ['axel', 'penguin', 'dirt'],
-    ['scramble', 'gwar', 'rez'],
-    ['floppy', 'circuit', 'cap'],
-]
+  // 1. Loop over each array inside mat, add up all the 1s
+  // 2. Increment i to act as the index
+  // 3. Push i-1 and the sum to a new array of arrays mapping keys and values
+  for (let arr of mat) {
+    sum = arr.reduce((a, b) => a + b, 0);
+    i++;
+    sorter.push([i - 1, sum]);
+  }
 
-// Takes the matrix as the first arg, and k is the # of rows that we are concerned with
-// mat is a number[][]
+  // 1. sort the arrays by weakest value
+  // 2. loop over the keys in sorted
+  // 3. Push the key to the solution array
+  let sorted = sorter.sort((a, b) => a[1] - b[1]);
+  for (let [key] of sorted) {
+    solution.push(key);
+  }
+  // Return a slice of the solution array from 1st to k
+  return solution.slice(0, k);
+};
 
-const kWeakestRows = function(mat, k) {
-    console.log('Function here.')
-}
-
-// for (let i=0; i < weirdMat.length; i++) {
-//     for(let j=0; j < weirdMat.length; j++) {
-//         console.log(`i: ${i} | j: ${j} ${weirdMat[i][j]}`);
-
-//     }
-
-// }
-
-let sum = 0;
-let solution = [];
-let solObj = {};
-let i = 0;
-
-// Loop through each array within the matrix
-// Take the sum of each 
-for (let arr of mat) {
-    sum = arr.reduce((a,b) => a+b, 0);
-    solution.push(sum);
-    console.log(sum);
-}
-
-
-
-// Create Object based on array of sums assigning each one to its respective index number:
-for (let i=0; i<solution.length; i++) {
-    solObj[i] = solution[i];
-    console.log(i, solObj)
-}
-
-// Loop over key/value pairs and return an array of 
-for (let  [key, value] of Object.entries(solObj)) {
-    // If 
-    console.log(`${key} index of this score: ${value}`)
-}
+console.log(kWeakestRows(mat, 3));
+console.log(kWeakestRows(mat2, 2));
