@@ -27,3 +27,71 @@ We could possibly do the following:
 - Create a hash map of some sort with key: value pairs. ie  - {1 { soldiers: 2, civilians: 3 }} IF I can figure out how to do that programmatically (Rest op?)
 
 */
+
+// Example Matrix 1
+const mat = [
+    [1,1,0,0,0],
+    [1,1,1,1,0],
+    [1,0,0,0,0],
+    [1,1,0,0,0],
+    [1,1,1,1,1],
+]
+
+// Example Matrix 2
+const mat2 = [
+    [1,0,0,0],
+    [1,1,1,1],
+    [1,0,0,0],
+    [1,0,0,0]
+
+]
+
+// [0][1][2]
+// 
+const weirdMat = [
+    ['axel', 'penguin', 'dirt'],
+    ['scramble', 'gwar', 'rez'],
+    ['floppy', 'circuit', 'cap'],
+]
+
+// Takes the matrix as the first arg, and k is the # of rows that we are concerned with
+// mat is a number[][]
+
+const kWeakestRows = function(mat, k) {
+    console.log('Function here.')
+}
+
+// for (let i=0; i < weirdMat.length; i++) {
+//     for(let j=0; j < weirdMat.length; j++) {
+//         console.log(`i: ${i} | j: ${j} ${weirdMat[i][j]}`);
+
+//     }
+
+// }
+
+let sum = 0;
+let solution = [];
+let solObj = {};
+let i = 0;
+
+// Loop through each array within the matrix
+// Take the sum of each 
+for (let arr of mat) {
+    sum = arr.reduce((a,b) => a+b, 0);
+    solution.push(sum);
+    console.log(sum);
+}
+
+
+
+// Create Object based on array of sums assigning each one to its respective index number:
+for (let i=0; i<solution.length; i++) {
+    solObj[i] = solution[i];
+    console.log(i, solObj)
+}
+
+// Loop over key/value pairs and return an array of 
+for (let  [key, value] of Object.entries(solObj)) {
+    // If 
+    console.log(`${key} index of this score: ${value}`)
+}
