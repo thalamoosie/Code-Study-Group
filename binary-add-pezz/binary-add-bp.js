@@ -59,7 +59,7 @@ const addBinary = function (a, b) {
     console.log(`Carry: ${carry}`)
   }
   if (carry > 0) res.unshift(1);
-  console.log(res.join(''))
+  console.log(res.join(''));
   return res.join('');
 };
 
