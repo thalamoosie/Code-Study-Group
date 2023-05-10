@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "sinon": "^15.0.4"
+  },
+  "name": "code-study-group",
+  "description": "Code study group solution repo for weekly exercises",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha ./unit-testing/**/*.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thalamoosie/Code-Study-Group.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thalamoosie/Code-Study-Group/issues"
+  },
+  "homepage": "https://github.com/thalamoosie/Code-Study-Group#readme"
+}
